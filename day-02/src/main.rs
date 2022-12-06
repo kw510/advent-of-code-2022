@@ -10,33 +10,33 @@ fn main() {
         let vec:Vec<char> = line.chars().filter(|x| x.is_ascii_alphabetic()).collect();
         //println!("{}, {}", vec[0], vec[1])
         match vec[..] {
-            [opponent, 'X'] => { // Rock
+            [opponent, 'X'] => { // Lose
                 let score = match opponent {
                     'A' => 3,
-                    'B' => 0,
-                    'C' => 6,
+                    'B' => 1,
+                    'C' => 2,
                     _ => 0,
-                } + 1;
+                } + 0;
                 print!("score: {} | ", score);
                 acc = acc + score;
             },
-            [opponent, 'Y'] => { // Paper
+            [opponent, 'Y'] => { // Draw
                 let score = match opponent {
-                    'A' => 6,
-                    'B' => 3,
-                    'C' => 0,
-                    _ => 0,
-                } + 2;
-                print!("score: {} | ", score);
-                acc = acc + score;
-            },
-            [opponent, 'Z'] => { // Scissors
-                let score = match opponent {
-                    'A' => 0,
-                    'B' => 6,
+                    'A' => 1,
+                    'B' => 2,
                     'C' => 3,
                     _ => 0,
                 } + 3;
+                print!("score: {} | ", score);
+                acc = acc + score;
+            },
+            [opponent, 'Z'] => { // Win
+                let score = match opponent {
+                    'A' => 2,
+                    'B' => 3,
+                    'C' => 1,
+                    _ => 0,
+                } + 6;
                 print!("score: {} | ", score);
                 acc = acc + score;
             }
